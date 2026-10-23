@@ -1,30 +1,24 @@
+//Preparar información para mostrarla
 
-/* ========================================= 
-		FORMATEADORES DE INFORMACIÓN
-========================================= */ 
+//Función que convierte valor númerico a una representación monetaria usando mxn
 
-/* ========================================= 
-			FORMATEAR MONEDA 
-========================================= */
-/* Convierte un valor a formato monetario utilizando pesos mexicanos. */
-export function formatCurrency(valor) {
+export function formatCurrency(valor){
     const numero = Number(valor);
 
-/* Si el resultado no es un número válido, regresamos un monto por defecto. */
-    if (!Number.isFinite(numero)) {
+    if (!Number.isFinite(numero)){
         return '$0.00';
     }
 
-    return numero.toLocaleString('es-MX', {
+    //Aplicar formato de moneda
+    return numero.toLocaleString('es-MX',{
         style: 'currency',
-        currency: 'MXN',
+        currency:'MXN',
     });
 }
 
 
-/* ========================================= 
-			FORMATEAR FECHA 
-========================================= */
+
+//Formatear fecha
 export function formatDate(fecha) {
 	
 	// Convertimos el valor a un objeto Date
@@ -38,16 +32,14 @@ export function formatDate(fecha) {
     return fechaObjeto.toLocaleDateString('es-MX');
 }
 
+//Formatear número de cuenta
+export function formatAccountNumber(numerCuenta) {
+    const numero = String(numerCuenta ?? '');
 
-/* ========================================= 
-		FORMATEAR NÚMERO DE CUENTA 
-========================================= */
-export function formatAccountNumber(numeroCuenta) {
-    const numero = String(numeroCuenta ?? '');
-
-/* Utilizamos una expresión regular para separar grupos de cuatro dígitos. */
+    //Separar grupos de cuatro digitos
     return numero.replace(
         /(\d{4})(?=\d)/g,
         '$1 ',
     );
 }
+

@@ -1,14 +1,8 @@
-/* ========================================= 
-		IMPORTAR UTILIDADES 
-========================================= */
 // Importamos generarId() para asignar automáticamente un identificador interno a cada cuenta.
 import { generarId } from '../utils/helpers.js';
 
+//Modelo cuenta representa la cuenta bancaria del usuario
 
-/* ========================================= 
-			MODELO CUENTA
-Representa una cuenta bancaria perteneciente a un usuario. 
-========================================= */
 export class Cuenta {
     constructor({
         id = generarId(),
@@ -34,20 +28,15 @@ export class Cuenta {
         this.activa = activa;
     }
 
-/* ===================================== 
-			DEPOSITAR 
-Incrementa el saldo actual utilizando el monto recibido.
-===================================== */
+//Deposito incrementa el saldo actual utilizando el monto recibido.
+
     depositar(monto) {
         this.saldo += Number(monto);
 
         return this.saldo;
     }
 
-/* ===================================== 
-				RETIRAR
-Disminuye el saldo actual utilizando el monto recibido.
-===================================== */
+//Retirar para disminuir el saldo actual utilizando el monto recibido.
     retirar(monto) {
         this.saldo -= Number(monto);
 

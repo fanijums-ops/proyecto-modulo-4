@@ -1,16 +1,14 @@
-/* ========================================= 
-			IMPORTAR UTILIDADES 
-========================================= */
-// Importamos generarId() para poder asignar automáticamente un identificador a cada usuario que creemos.
-import { generarId } from '../utils/helpers.js';
+//Importamos generarId() para asignar automaticamente yb identificador
+//a cada usuario creado
 
-/* ========================================= 
-			MODELO USUARIO 
-La clase Usuario funciona como un molde para representar a las personas registradas dentro del sistema.
-========================================= */
+import { generarId } from "../utils/helpers.js";
+
+//Clase usuario funcionara como molde para representar a las 
+//personas registradas dentro del sistema
+
 export class Usuario {
+    //Constructor se ejecutará cada vez que creeemos una nueva instancia
 
-// El constructor se ejecutará cada vez que creemos una nueva instancia mediante: new Usuario(...)
     constructor({
         id = generarId(),
         nombre,
@@ -19,11 +17,7 @@ export class Usuario {
         password,
         activo = true,
     }) {
-    
-    /* ================================= 
-		    ASIGNAR PROPIEDADES
-	this representa la instancia que estamos creando. 
-	================================= */
+        //Asignar propiedades, this representa la instancia que crearemos
         this.id = id;
         this.nombre = nombre;
         this.email = email;
